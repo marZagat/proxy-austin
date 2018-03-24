@@ -1,0 +1,13 @@
+config: 
+  target: 'http://127.0.0.1:2222'
+  phases: 
+    - duration: 60
+      arrivalRate: 20
+  processor: './my-functions.js'
+scenarios:
+  - flow:
+    - loop: 
+      - function: 'generateRandomData'
+      - get:
+          url: "/restaurants/{{ id }}/"
+      count: 50

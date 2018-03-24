@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express')
 const morgan = require('morgan');
 const path = require('path');
@@ -20,15 +21,15 @@ app.use('/restaurants/:id', express.static(path.join(__dirname, 'public')));
 app.get('/api/restaurants/:id/gallery', (req, res) => {
   res.redirect(`http://127.0.0.1:2222/api/restaurants/${req.params.id}/gallery`)
 });
-app.get('/api/restaurants/:id/overview', (req, res) => {
-  res.redirect(`http://184.169.248.150/api/restaurants/${req.params.id}/overview`)
-});
-app.get('/api/restaurants/:id/sidebar', (req, res) => {
-  res.redirect(`http://54.177.233.239/api/restaurants/${req.params.id}/sidebar`)
-});
-app.get('/api/restaurants/:id/recommendations', (req, res) => {
-  res.redirect(`http://52.89.102.101/api/restaurants/${req.params.id}/recommendations`)
-});
+// app.get('/api/restaurants/:id/overview', (req, res) => {
+//   res.redirect(`http://184.169.248.150/api/restaurants/${req.params.id}/overview`)
+// });
+// app.get('/api/restaurants/:id/sidebar', (req, res) => {
+//   res.redirect(`http://54.177.233.239/api/restaurants/${req.params.id}/sidebar`)
+// });
+// app.get('/api/restaurants/:id/recommendations', (req, res) => {
+//   res.redirect(`http://52.89.102.101/api/restaurants/${req.params.id}/recommendations`)
+// });
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`)
